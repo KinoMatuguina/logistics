@@ -1,7 +1,17 @@
 import { Schema, model, models } from 'mongoose';
 
 const UsersSchema = new Schema({
-  name: String,
+  _id: [Schema.Types.ObjectId],
+  firstName: String,
+  middleName: String,
+  lastName: String,
+  companyName: String,
+  email: String,
+  contactNumber: Number,
+  userType: ['Broker', 'Truck Owner'],
+  subscriptionType: { type: Number, min: 1, max: 3},
+  businessPermitNo: String,
+  ratings: Schema.Types.Decimal128
 });
 
 const Users = models.Users || model('Users', UsersSchema);
