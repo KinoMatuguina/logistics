@@ -8,7 +8,10 @@ const UsersSchema = new Schema({
   companyName: String,
   email: String,
   contactNumber: Number,
-  userType: ['Broker', 'Truck Owner'],
+  userType: {
+    type: String,
+    enum: ['Broker', 'Truck Owner']
+  },
   subscriptionType: { type: Number, min: 1, max: 3},
   businessPermitNo: String,
   ratings: Schema.Types.Decimal128

@@ -2,7 +2,10 @@ import { Schema, model, models } from 'mongoose';
 
 const PostsSchema = new Schema({
     createdBy: [Schema.Types.ObjectId],
-    type: ["Load", "Truck"],
+    type: {
+        type: String,
+        enum: ["Load", "Truck"]
+    },
     location: String,
     destination: String,
     const: Schema.Types.Decimal128,
